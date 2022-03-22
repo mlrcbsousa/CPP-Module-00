@@ -6,14 +6,14 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 21:26:04 by msousa            #+#    #+#              #
-#    Updated: 2022/03/21 21:33:43 by msousa           ###   ########.fr        #
+#    Updated: 2022/03/22 19:04:16 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS	= -Wall -Wextra -Werror
-CC			= gcc
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC			= clang++
 RM			= rm -f
-OBJ			= ${SRC:.c=.o}
+OBJ			= ${SRC:.cpp=.o}
 SRC			= megaphone.cpp
 
 NAME		= megaphone
@@ -21,7 +21,7 @@ NAME		= megaphone
 ${NAME}:	${OBJ}
 					${CC} ${CFLAGS} ${OBJ} -o $@
 
-%.o:%.c
+%.o:%.cpp
 					${CC} ${CFLAGS} -c $< -o $@
 
 all:			${NAME}

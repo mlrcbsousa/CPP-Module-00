@@ -6,7 +6,7 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 21:26:04 by msousa            #+#    #+#              #
-#    Updated: 2022/03/22 21:40:53 by msousa           ###   ########.fr        #
+#    Updated: 2022/03/23 12:08:07 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,14 @@ CC			= clang++
 RM			= rm -f
 OBJ			= ${SRC:.cpp=.o}
 SRC			= main.cpp PhoneBook.cpp Contact.cpp
+INC			= main.hpp PhoneBook.hpp Contact.hpp
 
 NAME		= phonebook
 
 ${NAME}:	${OBJ}
 					${CC} ${CFLAGS} ${OBJ} -o $@
 
-%.o:%.cpp
+%.o:%.cpp ${INC}
 					${CC} ${CFLAGS} -c $< -o $@
 
 all:			${NAME}

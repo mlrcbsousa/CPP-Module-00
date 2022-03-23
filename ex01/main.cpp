@@ -6,24 +6,62 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:40:00 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/22 23:31:05 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/23 19:45:42 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+
+void	ft_putendl(std::string str)
+{
+	std::cout << str << std::endl;
+}
+
+void	ft_putstr(std::string str)
+{
+	std::cout << str;
+}
+
+int	ft_stoi(std::string str)
+{
+	std::stringstream ss;
+	int num;
+
+	ss << str;
+	ss >> num;
+	return (num);
+}
+
+std::string	get_input(std::string field)
+{
+	std::string	value;
+
+	while (value == EMPTY)
+	{
+		std::cout << field << "?" << std::endl;
+		std::cout << "> ";
+
+		// receive value
+		getline(std::cin, value);
+
+		if (value == EMPTY)
+			std::cout << field << " can not be empty!" << std::endl;
+	}
+	return (value);
+}
 
 int	main(void)
 {
 	std::string	cmd;
 	PhoneBook	phonebook;
 
-	std::cout << "Welcome to your PhoneBook!" << std::endl;
+	ft_putendl("Welcome to your PhoneBook!");
 
 	// main loop
 	while (cmd != EXIT)
 	{
-		std::cout << "What would you like to do?" << std::endl;
-		std::cout << "(ADD, SEARCH, EXIT)" << std::endl;
+		ft_putendl("What would you like to do?");
+		ft_putendl("(ADD, SEARCH, EXIT)");
 		std::cout << "> ";
 
 		// receive instruction
@@ -31,11 +69,11 @@ int	main(void)
 
 		// do each instruction
 		if (cmd == ADD)
-		{} // PhoneBook.contact_add()
+			phonebook.contact_add();
 		else if (cmd == SEARCH)
-		{} // PhoneBook.contacts_search()
+			phonebook.contacts_search();
 		else if (cmd != EXIT)
-			std::cout << "Not a valid Command!" << std::endl;
+			ft_putendl("Not a valid Command!");
 	}
 	return (0);
 }

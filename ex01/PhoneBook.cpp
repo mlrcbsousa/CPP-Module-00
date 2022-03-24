@@ -6,33 +6,27 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:44:31 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/23 20:24:15 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/24 12:54:27 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-PhoneBook::PhoneBook(): _contacts(), _count()
-{
-	/* No-op */
-}
+PhoneBook::PhoneBook(): _contacts(), _count() { /* No-op */ }
 
 PhoneBook::~PhoneBook()
 {
-	/* No-op */
+	for (uint i = 0; i < this->_count; i++)
+		delete this->_contacts[i];
 }
 
 void	PhoneBook::set_contact(Contact *contact)
 {
-	// contact->display(); // test
-	// std::cout << this->_count << std::endl;
-	// // ft_putendl(this->_count);
-
 	if (this->_count == SIZE)
 	{
 		delete this->_contacts[0];
 		// move all left
-		for (size_t i = 1; i < SIZE; i++)
+		for (uint i = 1; i < SIZE; i++)
 			this->_contacts[i - 1] = this->_contacts[i];
 	}
 	else
@@ -43,7 +37,7 @@ void	PhoneBook::set_contact(Contact *contact)
 Contact *PhoneBook::get_contact( uint index ) const
 {
 	if (index < SIZE)
-		return (Contact *)(this->_contacts[index]);
+		return (this->_contacts[index]);
 	return (NULL);
 }
 
@@ -62,6 +56,12 @@ void	PhoneBook::contact_add( void )
 
 void PhoneBook::contacts_search( void ) const
 {
+	if (!this->_count)
+	{
+		ft_putendl("No contacts to display!");
+		return ;
+	}
+
 	// display
 	// this->contacts_display();
 
@@ -79,8 +79,6 @@ void PhoneBook::contacts_search( void ) const
 
 		// convert to int
 		index = ft_stoi(input);
-
-		std::cout << "index: " << index << std::endl;
 
 		if (!this->_valid_contacts_index(index))
 			ft_putendl("Index must be between 0 and 7!");

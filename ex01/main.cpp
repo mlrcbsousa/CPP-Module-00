@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:40:00 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/23 19:45:42 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/24 11:55:51 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 void	ft_putendl(std::string str)
 {
 	std::cout << str << std::endl;
-}
-
-void	ft_putstr(std::string str)
-{
-	std::cout << str;
 }
 
 int	ft_stoi(std::string str)

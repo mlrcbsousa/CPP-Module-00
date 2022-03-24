@@ -6,26 +6,11 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:44:10 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/23 20:17:26 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/24 17:39:27 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
-
-Contact::Contact()
-				// std::string first_name,
-				// std::string last_name,
-				// std::string nickname,
-				// std::string phone_number,
-				// std::string darkest_secret) :
-				// _first_name(first_name),
-				// _last_name(last_name),
-				// _nickname(nickname),
-				// _phone_number(phone_number),
-				// _darkest_secret(darkest_secret)
-{
-	/* No-op */
-}
 
 void	Contact::display( void ) const
 {

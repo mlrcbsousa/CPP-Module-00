@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 23:27:44 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/24 11:56:57 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/24 17:28:53 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@
 
 # define EMPTY ""
 
+# define COLUMN_SIZE 10
+
 void		ft_putendl(std::string text);
 int			ft_stoi(std::string str);
 std::string	get_input(std::string field);
+std::string truncate(std::string str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:40:00 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/24 11:55:51 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/24 17:44:26 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@ void	ft_putendl(std::string str)
 
 int	ft_stoi(std::string str)
 {
-	std::stringstream ss;
-	int num;
+	std::stringstream 	ss;
+	int					num;
 
 	ss << str;
 	ss >> num;
 	return (num);
+}
+
+std::string	truncate(std::string str)
+{
+    if (str.length() > COLUMN_SIZE)
+        return (str.substr(0, COLUMN_SIZE - 1) + ".");
+    return (str);
 }
 
 std::string	get_input(std::string field)

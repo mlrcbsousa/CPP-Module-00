@@ -6,12 +6,13 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:34:47 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/26 16:27:20 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/26 17:29:39 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int	Account::getNbAccounts( void )
 {
@@ -66,16 +67,45 @@ Account::~Account( void )
 
 void	Account::makeDeposit( int deposit )
 {
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "p_amount:" << _amount << ";";
+	std::cout << "deposit:" << deposit << ";";
+	std::cout << "amount:" << (_amount += deposit) << ";";
+	std::cout << "nb_deposits:" << ++_nbDeposits;
+	std::cout << std::endl;
+
+	Account::_totalAmount += deposit;
+	Account::_totalNbDeposits++;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "p_amount:" << _amount << ";";
+	std::cout << "withdrawal:";
+
+	if (checkAmount() < withdrawal)
+	{
+		std::cout << "refused" << std::endl;
+		return false;
+	}
+
+	std::cout << withdrawal << ";";
+	std::cout << "amount:" << (_amount -= withdrawal) << ";";
+	std::cout << "nb_withdrawals:" << ++_nbWithdrawals;
+	std::cout << std::endl;
+
+	Account::_totalAmount -= withdrawal;
+	Account::_totalNbWithdrawals++;
+
 	return true;
 }
 
 int		Account::checkAmount( void ) const
 {
-	return 0;
+	return _amount;
 }
 
 void	Account::displayStatus( void ) const
@@ -95,7 +125,15 @@ int	Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[19920104_091532] ";
+	time_t curr_time;
+	tm * curr_tm;
+	char timestamp[19];
+
+	time(&curr_time);
+	curr_tm = localtime(&curr_time);
+	strftime(timestamp, 19, "[%Y%m%d_%H%M%S] ", curr_tm);
+
+	std::cout << timestamp;
 }
 
 Account::Account( void )

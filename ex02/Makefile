@@ -6,7 +6,7 @@
 #    By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 21:26:04 by msousa            #+#    #+#              #
-#    Updated: 2022/03/25 18:38:34 by msousa           ###   ########.fr        #
+#    Updated: 2022/03/26 11:02:32 by msousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ			= ${SRC:.cpp=.o}
 SRC			= tests.cpp Account.cpp
 INC			= tests.hpp Account.hpp
 
-NAME		= account
+NAME		= accounts
 
 ${NAME}:	${OBJ}
 					${CC} ${CFLAGS} ${OBJ} -o $@
@@ -28,7 +28,7 @@ ${NAME}:	${OBJ}
 all:			${NAME}
 
 test:			${NAME}
-					-./tests.sh
+					-./${NAME} | diff 19920104_091532.log -
 
 clean:
 					${RM} ${OBJ}

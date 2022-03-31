@@ -6,14 +6,14 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:44:45 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/24 17:28:19 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/31 19:33:49 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "main.hpp"
+# include "Contact.hpp"
 
 # define SIZE 8
 

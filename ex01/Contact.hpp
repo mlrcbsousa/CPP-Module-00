@@ -6,14 +6,17 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:44:14 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/24 17:39:42 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/31 19:30:48 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include "main.hpp"
+# include <iostream>
+
+# define COLUMN_SIZE 10
+
 class Contact
 {
 private:
@@ -35,6 +38,11 @@ public:
 	std::string	get_darkest_secret( void ) const;
 	void		display( void ) const;
 };
+
+void		ft_putendl(std::string text);
+int			ft_stoi(std::string str);
+std::string	get_input(std::string field);
+std::string truncate(std::string str);
 
 #endif
 

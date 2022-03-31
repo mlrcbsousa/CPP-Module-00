@@ -6,11 +6,11 @@
 /*   By: msousa <mlrcbsousa@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:44:10 by msousa            #+#    #+#             */
-/*   Updated: 2022/03/24 17:39:27 by msousa           ###   ########.fr       */
+/*   Updated: 2022/03/31 19:24:17 by msousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Contact.hpp"
 
 void	Contact::display( void ) const
 {
